@@ -1,0 +1,52 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "MSVCx86",
+            "displayName": "Visual Studio Build Tools 2019 Release - x86",
+            "description": "Using compilers for Visual Studio 16 2019 (x86 architecture)",
+            "generator": "Visual Studio 16 2019",
+            "toolset": "host=x86",
+            "architecture": "win32",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe"
+            }
+        },
+        {
+            "name": "GCC",
+            "displayName": "GCC 6.3.0 mingw32",
+            "description": "Using compilers: C = C:\\MinGW\\bin\\gcc.exe, CXX = C:\\MinGW\\bin\\g++.exe",
+            "generator": "MinGW Makefiles",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "C:/MinGW/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "C:/MinGW/bin/g++.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "MSVCx86-debug",
+            "displayName": "Visual Studio Build Tools 2019 Release - x86 - Debug",
+            "configurePreset": "MSVCx86",
+            "configuration": "Debug"
+        },
+        {
+            "name": "MSVCx86-release",
+            "displayName": "Visual Studio Build Tools 2019 Release - x86 - Release",
+            "configurePreset": "MSVCx86",
+            "configuration": "Release"
+        },
+        {
+            "name": "gcc-debug",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "GCC"
+        }
+    ]
+}
