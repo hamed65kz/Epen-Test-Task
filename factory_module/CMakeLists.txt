@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.19...3.28)
 
 # Define project and language
